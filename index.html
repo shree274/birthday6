@@ -399,7 +399,9 @@ footer {
 </head>
 
 <body>
-
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="remo.mp3" type="audio/mpeg">
+</audio>
 <!-- Hanging decorations -->
 
 <div class="decorations">
@@ -440,6 +442,7 @@ footer {
     <!-- Birthday surprise -->
 
     <section id="surprise">
+        
 
         <!-- YOUR PERSONAL MESSAGE -->
 
@@ -643,6 +646,27 @@ function openSurprise() {
     document.getElementById("welcome").style.display = "none";
 
     document.getElementById("surprise").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    celebrate();
+}
+function openSurprise() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+
+    const music = document.getElementById("backgroundMusic");
+
+    music.volume = 0.5;
+
+    music.play().then(() => {
+        console.log("Background music started!");
+    }).catch((error) => {
+        console.error("Music playback failed:", error);
+    });
 
     window.scrollTo({
         top: 0,
