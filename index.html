@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday, My Twin 🫂🫶🏻</title>
+
+<style>
+:root {
+    --pink-light: #fff5f8;
+    --pink-soft: #ffe0eb;
+    --pink-medium: #f5a5bd;
+    --pink-bright: #e96b91;
+    --pink-dark: #b94e70;
+    --pink-text: #74364d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7fa, #ffe7ef, #fff0f5);
+    color: var(--pink-text);
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Hanging decorations */
+
+.decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.hanging {
+    position: relative;
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.hanging::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 75px;
+    background: #e9a4b8;
+    top: -85px;
+    left: 50%;
+}
+
+.hanging:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.hanging:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.hanging:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.hanging:nth-child(5) {
+    animation-delay: 2s;
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+/* Flying butterflies */
+
+.butterfly {
+    position: fixed;
+    font-size: 27px;
+    pointer-events: none;
+    z-index: 5;
+    animation: fly 12s linear infinite;
+}
+
+.butterfly-one {
+    left: -10%;
+    top: 70%;
+}
+
+.butterfly-two {
+    left: -15%;
+    top: 40%;
+    animation-delay: 4s;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-10vw) translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateX(55vw) translateY(-80px) rotate(20deg);
+    }
+    100% {
+        transform: translateX(120vw) translateY(30px) rotate(-20deg);
+    }
+}
+
+/* Main layout */
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    padding: 130px 20px 40px;
+}
+
+h1 {
+    color: var(--pink-dark);
+    font-size: clamp(30px, 6vw, 60px);
+    line-height: 1.3;
+    margin-bottom: 25px;
+    animation: appear 1.5s ease;
+}
+
+h2 {
+    color: var(--pink-dark);
+    margin: 20px 0;
+    font-size: clamp(25px, 5vw, 36px);
+    line-height: 1.4;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.welcome {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.name {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--pink-dark);
+}
+
+.btn {
+    background: linear-gradient(135deg, var(--pink-medium), var(--pink-bright));
+    color: white;
+    padding: 16px 32px;
+    margin: 25px 0;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px #eaa0b8;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px #df8ca8;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Surprise content */
+
+#surprise {
+    display: none;
+    animation: appear 1s ease;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.82);
+    padding: 25px 22px;
+    margin: 30px auto;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px rgba(210, 100, 140, 0.15);
+    max-width: 800px;
+}
+
+/* Personal birthday message */
+
+.personal-message p {
+    color: var(--pink-text);
+    font-size: 20px;
+    line-height: 1.9;
+    margin: 20px 0;
+    overflow-wrap: anywhere;
+}
+
+.personal-message h2 {
+    margin-bottom: 25px;
+}
+
+/* Photo carousel */
+
+.gallery {
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffe6ef;
+    padding: 10px;
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease;
+}
+
+.carousel img {
+    display: block;
+    width: 100%;
+    flex: 0 0 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: #ffdce8;
+}
+
+.photo-note {
+    font-size: 14px;
+    color: #9b5b70;
+}
+
+/* Birthday messages */
+
+.message {
+    background: #fff0f5;
+    border: 2px solid #f8ccda;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 15px 0;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Secret letters */
+
+.letter {
+    background: #ffe4ed;
+    padding: 18px;
+    margin: 15px auto;
+    border-radius: 15px;
+    max-width: 550px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.letter:hover {
+    transform: scale(1.02);
+}
+
+.letter-content {
+    display: none;
+    margin-top: 15px;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* Birthday wish */
+
+#wishMessage {
+    display: none;
+    color: var(--pink-dark);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 10;
+    animation: floatHeart 5s linear forwards;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Footer */
+
+footer {
+    padding: 30px 15px;
+    color: var(--pink-dark);
+    font-size: 16px;
+}
+
+/* Mobile responsive layout */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 115px 12px 30px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .section {
+        padding: 20px 15px;
+        margin: 22px auto;
+    }
+
+    .personal-message p {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    .carousel img {
+        height: 280px;
+    }
+
+    .hanging {
+        font-size: 27px;
+    }
+
+    .btn {
+        padding: 14px 22px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hanging decorations -->
+
+<div class="decorations">
+    <div class="hanging">🎈</div>
+    <div class="hanging">🩷</div>
+    <div class="hanging">🎀</div>
+    <div class="hanging">💗</div>
+    <div class="hanging">🎈</div>
+</div>
+
+<!-- Flying butterflies -->
+
+<div class="butterfly butterfly-one">🦋</div>
+<div class="butterfly butterfly-two">🦋</div>
+
+<div class="container">
+
+    <!-- Welcome screen -->
+
+    <section class="welcome" id="welcome">
+
+        <h1>Happy Birthday, My Twin 🫂🫶🏻</h1>
+
+        <p class="subtitle">A special surprise for</p>
+
+        <div class="name">Mr. Siva 🩷</div>
+
+        <p style="margin-top: 30px;">
+            To my special friend and twin 🎁
+        </p>
+
+        <button class="btn" onclick="openSurprise()">
+            Open Your Surprise 🎁
+        </button>
+
+    </section>
+
+    <!-- Birthday surprise -->
+
+    <section id="surprise">
+
+        <!-- YOUR PERSONAL MESSAGE -->
+
+        <div class="section personal-message">
+
+            <h2>🩷 Dear Siva ❤️</h2>
+
+            <p>
+                Vanakooo mr siva 🫂🫶🏻 😁
+            </p>
+
+            <p>
+                Im very luck to have a twin like u.
+                I hope we won't become strangers 🫂🧿
+            </p>
+
+            <p>
+                It's ur burthdayyyy!
+                Stay blessed 🤞🏻🍀
+            </p>
+
+            <p>
+                Sothu mutta, even though ur biggest somberi,
+                I know that, but u will succeed in ur life 🔥
+            </p>
+
+            <p>
+                Always be happy madu. Don't worry,
+                whatever happens, it's for ur good 😊🫂🧿
+            </p>
+
+            <h2>Happy Birthday, My Twin! 🫂🫶🏻</h2>
+
+        </div>
+
+        <!-- Photo gallery -->
+
+        <div class="section">
+
+            <h2>📸 Our Beautiful Memories 💗</h2>
+
+            <p>Every picture holds a special memory! 🥹</p>
+
+            <div class="gallery">
+
+                <div class="carousel" id="carousel">
+
+                    <img src="Picsart_26-10-16_23-24-24-269.jpg.jpeg" alt="Our memory 1">
+                    <img src="pic2.jpeg" alt="Our memory 2">
+                    <img src="pic3.jpeg"Our memory 3">
+                    <img src="pic4.jpeg" alt="Our memory 4">
+                    <img src="Picsart_26-10-16_23-27-11-390.jpg.jpeg" alt="Our memory 5">
+                    <img src="Picsart_26-10-16_23-25-38-201.jpg.jpeg" alt="Our memory 6">
+
+                </div>
+
+            </div>
+
+            <p class="photo-note">
+                Our memories will always be special! 🫂🫶🏻
+            </p>
+
+        </div>
+
+        <!-- Birthday messages -->
+
+        <div class="section">
+
+            <h2>A Few Words for You 💌</h2>
+
+            <div class="message">
+                🫂 No matter where life takes us,
+                I hope we never become strangers.
+            </div>
+
+            <div class="message">
+                🫶🏻 I'm lucky to have a twin like you.
+                Thanks for being part of my life!
+            </div>
+
+            <div class="message">
+                🔥 Keep working towards your dreams.
+                I know you will succeed in your life!
+            </div>
+
+            <div class="message">
+                🍀 Stay blessed, stay happy, and keep smiling!
+            </div>
+
+        </div>
+
+        <!-- Secret letters -->
+
+        <div class="section">
+
+            <h2>Open Your Secret Letters 💌</h2>
+
+            <div class="letter" onclick="toggleLetter('letter1')">
+
+                💗 Letter 1 — A Special Message
+
+                <div class="letter-content" id="letter1">
+                    I'm very lucky to have a twin like you.
+                    I hope we always stay close and never
+                    become strangers. 🫂🫶🏻
+                </div>
+
+            </div>
+
+            <div class="letter" onclick="toggleLetter('letter2')">
+
+                🎁 Letter 2 — A Birthday Wish
+
+                <div class="letter-content" id="letter2">
+                    I wish you happiness, success, good health,
+                    and a beautiful future. Stay blessed
+                    and keep smiling always! 🤞🏻🍀
+                </div>
+
+            </div>
+
+            <div class="letter" onclick="toggleLetter('letter3')">
+
+                🫂 Letter 3 — To My Twin
+
+                <div class="letter-content" id="letter3">
+                    Whatever happens in life, remember that
+                    better days are ahead. Keep believing
+                    in yourself. I hope you succeed in everything
+                    you dream of! 🔥🧿
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Make a wish -->
+
+        <div class="section">
+
+            <h2>Make a Birthday Wish! 🌟</h2>
+
+            <p>
+                Close your eyes, make a wish,
+                and get ready for a wonderful year ahead! 🎂
+            </p>
+
+            <button class="btn" onclick="makeWish()">
+                Make a Wish ✨
+            </button>
+
+            <div id="wishMessage">
+                May all your beautiful dreams come true! 🌟💗
+                <br><br>
+                Happy Birthday, My Twin! 🫂🫶🏻
+            </div>
+
+        </div>
+
+        <!-- Final birthday message -->
+
+        <div class="section">
+
+            <h2>One Last Thing... 💗</h2>
+
+            <p>
+                Today is all about celebrating YOU! 🎉
+            </p>
+
+            <p>
+                Stay blessed, keep smiling, and never stop
+                chasing your dreams! 🤞🏻🍀
+            </p>
+
+            <h2>Happy Birthday, My Twin 🫂🫶🏻</h2>
+
+            <p>
+                From your twin's favourite troublemaker! 😁💗
+            </p>
+
+            <button class="btn" onclick="celebrate()">
+                More Hearts! 💕
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    Made with love for Mr. Siva 💗🎂🫂🫶🏻
+</footer>
+
+<script>
+
+/* Open the birthday surprise */
+
+function openSurprise() {
+
+    document.getElementById("welcome").style.display = "none";
+
+    document.getElementById("surprise").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    celebrate();
+}
+
+/* Automatic photo carousel */
+
+const carousel = document.getElementById("carousel");
+
+let currentSlide = 0;
+
+function slidePhotos() {
+
+    if (!carousel) {
+        return;
+    }
+
+    const photos = carousel.querySelectorAll("img");
+
+    if (photos.length === 0) {
+        return;
+    }
+
+    currentSlide++;
+
+    if (currentSlide >= photos.length) {
+        currentSlide = 0;
+    }
+
+    carousel.style.transform =
+        "translateX(-" + (currentSlide * 100) + "%)";
+}
+
+setInterval(slidePhotos, 3000);
+
+/* Open and close secret letters */
+
+function toggleLetter(id) {
+
+    const letter = document.getElementById(id);
+
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+    }
+}
+
+/* Make a birthday wish */
+
+function makeWish() {
+
+    document.getElementById("wishMessage").style.display = "block";
+
+    celebrate();
+}
+
+/* Create floating hearts */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const emojis = [
+        "💗",
+        "💕",
+        "🩷",
+        "💖",
+        "🫶🏻",
+        "❤️",
+        "🫂"
+    ];
+
+    heart.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (20 + Math.random() * 20) + "px";
+
+    heart.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+        heart.remove();
+    }, 6500);
+}
+
+/* Birthday celebration */
+
+function celebrate() {
+
+    for (let i = 0; i < 20; i++) {
+
+        setTimeout(function () {
+            createHeart();
+        }, i * 100);
+
+    }
+}
+
+/* Gentle floating hearts during the surprise */
+
+setInterval(function () {
+
+    const surprise = document.getElementById("surprise");
+
+    if (surprise && surprise.style.display === "block") {
+        createHeart();
+    }
+
+}, 1200);
+
+</script>
+
+</body>
+</html>
